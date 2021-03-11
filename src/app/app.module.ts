@@ -10,6 +10,7 @@ import { CardComponent } from './components/card/card.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgMaterialModule } from './ng-material.module';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SideFilterComponent,
     CardComponent,
     MainComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgMaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
