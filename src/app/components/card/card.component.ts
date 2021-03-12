@@ -16,6 +16,7 @@ export class CardComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.programs = this.programsService.getPrograms();
+    // console.log(this.programsService.getSchools());
   }
   ngOnChanges() {
     console.log(this.cityWord);

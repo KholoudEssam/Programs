@@ -13,8 +13,117 @@
     </select>
     <div style="margin-top: 1rem">
       <mat-chip-list>
-        <mat-chip *ngFor="let c of selectedCities"> {{ c }} </mat-chip>
+        <mat-chip
+          *ngFor="let c of selectedCities"
+          [removable]="removable"
+          (removed)="onRemoveSelectedCity(c)"
+        >
+          {{ c }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
       </mat-chip-list>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Program</label>
+    <div class="custom-control custom-radio" *ngFor="let rB of rbProgram">
+      <input
+        type="radio"
+        name="radBtn"
+        [id]="rB.key"
+        class="custom-control-input"
+        (click)="getSelectedProgram(rB.value)"
+      />
+      <label class="custom-control-label" [for]="rB.key">
+        {{ rB.value }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Field</label>
+    <select class="custom-select" [formControl]="moreFieldsControl">
+      <option disabled selected value="">Choose one field or more</option>
+      <option
+        [value]="field"
+        *ngFor="let field of fields"
+        (click)="getSelectedField(field)"
+      >
+        {{ field }}
+      </option>
+    </select>
+    <div style="margin-top: 1rem">
+      <mat-chip-list>
+        <mat-chip
+          style="padding: 10px; font-size: 12px"
+          *ngFor="let f of selectedFields"
+          [removable]="removable"
+          (removed)="onRemoveSelectedField(f)"
+        >
+          {{ f }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>School</label>
+    <select class="custom-select" [formControl]="moreSchoolsControl">
+      <option disabled selected value="">Choose one School or more</option>
+      <option
+        [value]="school"
+        *ngFor="let school of schools"
+        (click)="getSelectedSchool(school)"
+      >
+        {{ school }}
+      </option>
+    </select>
+    <div style="margin-top: 1rem">
+      <mat-chip-list>
+        <mat-chip
+          style="padding: 10px; font-size: 12px"
+          *ngFor="let s of selectedSchools"
+          [removable]="removable"
+          (removed)="onRemoveSelectedSchool(s)"
+        >
+          {{ s }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Language</label>
+    <div class="custom-control custom-radio" *ngFor="let rB of rbLang">
+      <input
+        type="radio"
+        name="radBtn2"
+        [id]="rB.key"
+        class="custom-control-input"
+        (click)="getSelectedLang(rB.value)"
+      />
+      <label class="custom-control-label" [for]="rB.key">
+        {{ rB.value }}
+      </label>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Price</label>
+    <div class="custom-control custom-radio" *ngFor="let rB of rbPrice">
+      <input
+        type="radio"
+        name="radBtn3"
+        [id]="rB.key"
+        class="custom-control-input"
+        (click)="getSelectedPrice(rB.value)"
+      />
+      <label class="custom-control-label" [for]="rB.key">
+        {{ rB.value }}
+      </label>
     </div>
   </div>
 </div>
