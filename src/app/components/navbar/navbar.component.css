@@ -1,0 +1,15 @@
+#navbarNav {
+  flex-direction: row-reverse;
+}
+.nav-item {
+  margin: 0 15px;
+}
+a {
+  color: #878787;
+}
+.active > .nav-link {
+  color: #6db1dc;
+}
+li button {
+  padding: 0 25px;
+}

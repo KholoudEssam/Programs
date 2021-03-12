@@ -29,16 +29,16 @@
 
 <form class="input-group" (ngSubmit)="onSearch()">
   <input
-    class="form-control"
+    class="col-5 form-control"
     type="text"
     placeholder="What do you want to learn?"
     [formControl]="courseControl"
   />
 
   <input
+    class="form-control"
     type="text"
     placeholder="Write or choose city"
-    class="form-control"
     [formControl]="cityControl"
     [matAutocomplete]="auto"
   />

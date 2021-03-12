@@ -85,4 +85,13 @@ export class SideFilterComponent implements OnInit {
   getSelectedPrice(rb) {
     this.selectedPrice = rb;
   }
+
+  onFilter() {
+    console.log(this.selectedCities);
+    console.log(this.selectedFields);
+    console.log(this.selectedSchools);
+    console.log(this.selectedLang);
+    console.log(this.selectedProgram);
+    console.log(this.selectedPrice);
+  }
 }
