@@ -2,7 +2,9 @@
   <div class="form-group">
     <label>City</label>
     <select class="custom-select" [formControl]="moreCityControl">
-      <option disabled selected value="">Choose one city or more</option>
+      <option value="Choose one city or more" selected>
+        Choose one city or more
+      </option>
       <option
         [value]="city"
         *ngFor="let city of cities"
@@ -127,5 +129,12 @@
     </div>
   </div>
 
-  <button mat-raised-button color="primary" (click)="onFilter()">Filter</button>
+  <button
+    class="filter-btn"
+    mat-raised-button
+    color="primary"
+    (click)="onFilter()"
+  >
+    Filter
+  </button>
 </div>

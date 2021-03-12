@@ -6,10 +6,15 @@
   </div>
   <div class="row">
     <div class="col-4">
-      <app-side-filter></app-side-filter>
+      <app-side-filter
+        (filteredPrograms)="getMultipleFiltered($event)"
+      ></app-side-filter>
     </div>
     <div class="col-8">
-      <app-card [cityWord]="searchWord"></app-card>
+      <app-card
+        [cityWord]="searchWord"
+        [filteredPrograms]="programs"
+      ></app-card>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { ProgramsService } from 'src/app/services/programs.service';
@@ -9,6 +9,8 @@ import { Program } from 'src/app/models/program';
   styleUrls: ['./side-filter.component.css'],
 })
 export class SideFilterComponent implements OnInit {
+  @Output() filteredPrograms = new EventEmitter<Program[]>();
+
   moreCityControl = new FormControl();
   moreFieldsControl = new FormControl();
   moreSchoolsControl = new FormControl();
@@ -28,7 +30,7 @@ export class SideFilterComponent implements OnInit {
     { key: 1, value: 'Bachelor' },
     { key: 2, value: 'Master' },
     { key: 3, value: 'MBA' },
-    { key: 4, value: 'BHD' },
+    { key: 4, value: 'PhD' },
   ];
   rbLang = [
     { key: 5, value: 'All' },
@@ -52,15 +54,12 @@ export class SideFilterComponent implements OnInit {
 
   getSelectedCity(city) {
     this.selectedCities.push(city);
-    // console.log(this.selectedCities);
   }
   getSelectedField(field) {
     this.selectedFields.push(field);
-    // console.log(this.selectedFields);
   }
   getSelectedSchool(school) {
     this.selectedSchools.push(school);
-    // console.log(this.selectedSchools);
   }
 
   onRemoveSelectedCity(c) {
@@ -87,11 +86,16 @@ export class SideFilterComponent implements OnInit {
   }
 
   onFilter() {
-    console.log(this.selectedCities);
-    console.log(this.selectedFields);
-    console.log(this.selectedSchools);
-    console.log(this.selectedLang);
-    console.log(this.selectedProgram);
-    console.log(this.selectedPrice);
+    const filteredData = this.programsService.filterMultiple(
+      this.selectedPrice,
+      this.selectedLang,
+      this.selectedSchools,
+      this.selectedFields,
+      this.selectedProgram,
+      this.selectedCities
+    );
+
+    // console.log('in side filter', filteredData);
+    this.filteredPrograms.emit(filteredData);
   }
 }

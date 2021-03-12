@@ -10,17 +10,33 @@ import { Program } from 'src/app/models/program';
 })
 export class CardComponent implements OnInit, OnChanges {
   @Input() cityWord = '';
+  @Input() filteredPrograms: Program[] = [];
 
   programs: Program[];
   constructor(private programsService: ProgramsService) {}
 
   ngOnInit(): void {
     this.programs = this.programsService.getPrograms();
-    // console.log(this.programsService.getSchools());
+    // this.programsService.getPrice();
   }
   ngOnChanges() {
-    console.log(this.cityWord);
-    if (this.cityWord === '' || this.cityWord === null) return;
-    this.programs = this.programsService.filterProgram('city', this.cityWord);
+    if (this.cityWord) {
+      this.programs = this.programsService.filterProgramByCity(
+        'city',
+        this.cityWord
+      );
+      this.cityWord = '';
+      console.log(this.programs);
+      return;
+    }
+    if (
+      this.cityWord === '' ||
+      this.cityWord === null ||
+      this.filteredPrograms
+    ) {
+      this.programs = this.filteredPrograms;
+      this.filteredPrograms = [];
+      return;
+    }
   }
 }
