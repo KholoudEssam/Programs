@@ -1,0 +1,9 @@
+.input-group {
+  /* width: 80%; */
+  display: flex;
+  justify-content: center;
+  margin: 4%;
+}
+.form-control {
+  padding: 1.5rem;
+}

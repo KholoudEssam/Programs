@@ -1,1 +1,59 @@
-<p>search works!</p>
+<!-- <form (ngSubmit)="onSearch()">
+  <mat-form-field appearance="outline">
+    <input
+      type="text"
+      placeholder="What do you want to learn?"
+      matInput
+      [formControl]="courseControl"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <input
+      type="text"
+      placeholder="Write or choose city"
+      matInput
+      [formControl]="cityControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Search</button>
+</form> -->
+
+<form class="input-group" (ngSubmit)="onSearch()">
+  <input
+    class="form-control"
+    type="text"
+    placeholder="What do you want to learn?"
+    [formControl]="courseControl"
+  />
+
+  <input
+    type="text"
+    placeholder="Write or choose city"
+    class="form-control"
+    [formControl]="cityControl"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+
+  <div class="input-group-append">
+    <span class="input-group-text" style="background-color: #fff">
+      <img src="assets/down_arrow.svg" alt="" />
+    </span>
+  </div>
+  <div class="input-group-append">
+    <button mat-raised-button color="primary">Search</button>
+  </div>
+</form>

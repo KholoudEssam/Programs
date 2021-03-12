@@ -13,8 +13,7 @@ export class MainComponent implements OnInit {
   constructor(private programsService: ProgramsService) {}
 
   ngOnInit(): void {
-    this.programs = this.programsService.filterProgram('length', '3 years');
-
-    console.log(this.programs);
+    // this.programs = this.programsService.filterProgram('length', '3 years');
+    // console.log(this.programs);
   }
 }

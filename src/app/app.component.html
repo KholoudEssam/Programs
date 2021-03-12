@@ -1,5 +1,15 @@
 <app-navbar></app-navbar>
 
-<app-search></app-search>
-
-<app-main></app-main>
+<div class="container">
+  <div style="text-align: center">
+    <app-search (searchKey)="getSearchWord($event)"></app-search>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-side-filter></app-side-filter>
+    </div>
+    <div class="col-8">
+      <app-card [cityWord]="searchWord"></app-card>
+    </div>
+  </div>
+</div>

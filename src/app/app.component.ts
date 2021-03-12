@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Programs';
+  searchWord: string;
+
+  getSearchWord(word: string) {
+    this.searchWord = word;
+  }
 }
