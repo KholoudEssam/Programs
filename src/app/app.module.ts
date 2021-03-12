@@ -8,7 +8,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 import { SideFilterComponent } from './components/side-filter/side-filter.component';
 import { CardComponent } from './components/card/card.component';
-import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgMaterialModule } from './ng-material.module';
@@ -20,7 +19,6 @@ import { NgMaterialModule } from './ng-material.module';
     SearchComponent,
     SideFilterComponent,
     CardComponent,
-    MainComponent,
     FooterComponent,
   ],
   imports: [

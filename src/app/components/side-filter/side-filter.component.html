@@ -1,1 +1,20 @@
-<p>side-filter works!</p>
+<div class="card p-3">
+  <div class="form-group">
+    <label>City</label>
+    <select class="custom-select" [formControl]="moreCityControl">
+      <option disabled selected value="">Choose one city or more</option>
+      <option
+        [value]="city"
+        *ngFor="let city of cities"
+        (click)="getSelectedCity(city)"
+      >
+        {{ city }}
+      </option>
+    </select>
+    <div style="margin-top: 1rem">
+      <mat-chip-list>
+        <mat-chip *ngFor="let c of selectedCities"> {{ c }} </mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+</div>
